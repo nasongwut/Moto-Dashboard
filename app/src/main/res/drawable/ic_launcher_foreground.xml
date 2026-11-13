@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- MotoDash: เกจรอบเครื่อง 270° + โซนแดง + เข็ม + ไฟ REC -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- ราง -->
+    <path
+        android:pathData="M38.444,69.556 A22,22 0 1,1 69.556,69.556"
+        android:strokeColor="#2A313B"
+        android:strokeWidth="6"
+        android:strokeLineCap="round" />
+    <!-- โซนแดง -->
+    <path
+        android:pathData="M76,54 A22,22 0 0,1 69.556,69.556"
+        android:strokeColor="#FF4D4D"
+        android:strokeWidth="6"
+        android:strokeLineCap="round" />
+    <!-- ค่าปัจจุบัน -->
+    <path
+        android:pathData="M38.444,69.556 A22,22 0 0,1 66.619,35.978"
+        android:strokeColor="#FFB020"
+        android:strokeWidth="6"
+        android:strokeLineCap="round" />
+    <!-- เข็ม -->
+    <path
+        android:pathData="M54,54 L63.178,40.893"
+        android:strokeColor="#F2F4F7"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round" />
+    <!-- แกนเข็ม -->
+    <path
+        android:pathData="M54,54 m-4.5,0 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0"
+        android:fillColor="#F2F4F7" />
+    <path
+        android:pathData="M54,54 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0"
+        android:fillColor="#0B0D10" />
+    <!-- ไฟ REC -->
+    <path
+        android:pathData="M54,69 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0"
+        android:fillColor="#FF4D4D" />
+</vector>
