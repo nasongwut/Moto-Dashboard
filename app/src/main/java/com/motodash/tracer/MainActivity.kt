@@ -127,6 +127,7 @@ class MainActivity : ComponentActivity() {
                     SettingsDialog(prefs) { saved ->
                         showSettings = false
                         if (saved) {
+                            applyScreen()
                             service?.reloadSettings()
                             settingsVersion = v + 1
                         }
@@ -135,13 +136,10 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // จอติดค้างเมื่อมีไฟเข้า · ไม่มีไฟให้จอดับตามเวลาปกติ
+        // จอไม่หรี่/ไม่ดับ: ตั้งค่า "จอติดตลอด" (ค่าเริ่มต้น) หรือเมื่อมีไฟเข้า
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                AppState.externalPower.collect { on ->
-                    if (on) window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-                    else window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-                }
+                AppState.externalPower.collect { applyScreen() }
             }
         }
 
@@ -154,8 +152,21 @@ class MainActivity : ComponentActivity() {
         startGps()
     }
 
+    /** จอติดตลอด + ความสว่างสูงสุด ตามค่าในหน้าตั้งค่า */
+    private fun applyScreen() {
+        if (prefs.keepScreenOn || AppState.externalPower.value) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
+        window.attributes = window.attributes.apply {
+            screenBrightness = if (prefs.maxBrightness) 1f else WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE
+        }
+    }
+
     override fun onResume() {
         super.onResume()
+        applyScreen()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         NowPlaying.start(this)
     }

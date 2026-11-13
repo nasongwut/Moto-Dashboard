@@ -68,6 +68,8 @@ fun SettingsDialog(prefs: Prefs, onDismiss: (saved: Boolean) -> Unit) {
     var host by remember { mutableStateOf(prefs.elmHost) }
     var port by remember { mutableStateOf(prefs.elmPort.toString()) }
     var dual by remember { mutableStateOf(prefs.dualCamera) }
+    var keepOn by remember { mutableStateOf(prefs.keepScreenOn) }
+    var bright by remember { mutableStateOf(prefs.maxBrightness) }
     var quota by remember { mutableFloatStateOf(prefs.quotaGb.toFloat()) }
 
     fun open(intent: Intent) {
@@ -135,6 +137,19 @@ fun SettingsDialog(prefs: Prefs, onDismiss: (saved: Boolean) -> Unit) {
 
                 HorizontalDivider()
 
+                // ---------- หน้าจอ ----------
+                Text("หน้าจอ", fontWeight = FontWeight.Bold)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("จอติดตลอด ไม่หรี่ ไม่ดับ", modifier = Modifier.weight(1f))
+                    Switch(checked = keepOn, onCheckedChange = { keepOn = it })
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("ความสว่างสูงสุด (อ่านกลางแดด)", modifier = Modifier.weight(1f))
+                    Switch(checked = bright, onCheckedChange = { bright = it })
+                }
+
+                HorizontalDivider()
+
                 // ---------- กล้อง ----------
                 Text("กล้อง", fontWeight = FontWeight.Bold)
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -154,6 +169,8 @@ fun SettingsDialog(prefs: Prefs, onDismiss: (saved: Boolean) -> Unit) {
                 prefs.elmPort = port.toIntOrNull() ?: 35000
                 prefs.quotaGb = quota.toInt()
                 prefs.dualCamera = dual
+                prefs.keepScreenOn = keepOn
+                prefs.maxBrightness = bright
                 onDismiss(true)
             }) { Text("บันทึก") }
         },

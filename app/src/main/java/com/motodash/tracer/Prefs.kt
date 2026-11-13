@@ -61,6 +61,16 @@ class Prefs(context: Context) {
         get() = sp.getBoolean("dual_camera", true)
         set(v) = sp.edit().putBoolean("dual_camera", v).apply()
 
+    /** จอติดตลอด ไม่หรี่ ไม่ดับ (แม้ไม่ได้เสียบไฟ) */
+    var keepScreenOn: Boolean
+        get() = sp.getBoolean("keep_screen_on", true)
+        set(v) = sp.edit().putBoolean("keep_screen_on", v).apply()
+
+    /** ล็อกความสว่างจอสูงสุด (อ่านกลางแดด) */
+    var maxBrightness: Boolean
+        get() = sp.getBoolean("max_brightness", false)
+        set(v) = sp.edit().putBoolean("max_brightness", v).apply()
+
     /** เสียงนำทาง */
     var voiceNav: Boolean
         get() = sp.getBoolean("voice_nav", true)
