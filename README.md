@@ -41,6 +41,16 @@
 - **ความเร็ว** ใช้ค่าจาก OBD ก่อน ถ้าไม่มีใช้ GPS · ถือว่า "รถวิ่ง" เมื่อ ≥ 5 km/h
 - **ปุ่มบนแฮนด์:** รีโมตหรือคีย์บอร์ด Bluetooth ◀ ▶ / Page Up-Down = เลื่อนแท็บ, F1–F4 = หน้าปัด / กล้อง / แผนที่ / สื่อ
 
+## ฮาร์ดแวร์: MotoDash Hub (บอร์ดเสริม)
+
+บอร์ดเดียวต่อมือถือด้วย **USB-C เส้นเดียว**: ชาร์จไฟจาก ACC 12 V · กล้อง **AHD Analog 2 ตัว** (แปลงเป็น USB UVC) · **OBD2/CAN หลายยี่ห้อ** ผ่าน STN2120 (คำสั่ง ELM327) พร้อมสายแปลง Yamaha / Honda / Kawasaki / Suzuki / OBD2-16
+
+![MotoDash Hub PCB](hardware/img/pcb.png)
+
+![Block diagram](hardware/img/block.png)
+
+รายละเอียดวงจร, BOM, ขาเชื่อมต่อ และสิ่งที่ต้องแก้ในแอป → [hardware/README.md](hardware/README.md) (สถานะ: แบบแนวคิด v0.1)
+
 ## สิ่งที่ต้องมี
 
 - Samsung Galaxy S21 FE (หรือ Android 12 ขึ้นไป)

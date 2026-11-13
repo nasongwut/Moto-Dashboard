@@ -1,0 +1,11 @@
+Add MotoDash Hub hardware concept (power, 2x AHD camera, multi-brand OBD)
+
+- hardware/README.md: block diagram, schematic overview, PCB placement,
+  pinouts, brand OBD adapter table, power budget, BOM, layout notes,
+  required app changes (UVC cameras, OBD protocol selection)
+- hardware/img: block / schematic / PCB concept renders (PNG + SVG)
+- hardware/tools/gen_images.py: regenerates the images
+- README.md: new hardware section with PCB and block diagram
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01JFNgHcHk9GxyU9iwnkxTLF
